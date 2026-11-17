@@ -7,13 +7,13 @@
   <title>Vitor Ten Cate Schelski</title>
   <style>
     :root {
-      --background: #0d090a;
-      --surface: rgba(28, 16, 18, 0.86);
-      --surface-border: rgba(245, 158, 11, 0.16);
-      --red: #ef4444;
-      --gold: #f59e0b;
-      --text: #fffaf6;
-      --muted: #bba9a6;
+      --background: #0b0b0c;
+      --surface: rgba(22, 22, 24, 0.94);
+      --surface-border: rgba(255, 255, 255, 0.09);
+      --red: #b91c1c;
+      --gold: #d6a65f;
+      --text: #f7f5f2;
+      --muted: #aaa8a4;
     }
 
     * {
@@ -29,132 +29,88 @@
     body {
       min-height: 100vh;
       overflow-x: hidden;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 78% 18%, rgba(239, 68, 68, 0.16), transparent 25rem),
-        radial-gradient(circle at 10% 85%, rgba(245, 158, 11, 0.09), transparent 20rem),
+        radial-gradient(circle at 82% 12%, rgba(185, 28, 28, 0.09), transparent 26rem),
         var(--background);
     }
 
     body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 90%);
+      display: none;
     }
 
     .orb {
-      position: fixed;
-      width: 22rem;
-      height: 22rem;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.13;
-      background: var(--red);
-      pointer-events: none;
-      animation: float 10s ease-in-out infinite alternate;
-    }
-
-    .orb-one {
-      top: -10rem;
-      right: -8rem;
-    }
-
-    .orb-two {
-      bottom: -14rem;
-      left: -10rem;
-      animation-delay: -5s;
+      display: none;
     }
 
     .container {
-      width: min(1120px, calc(100% - 40px));
+      width: min(1080px, calc(100% - 40px));
       min-height: 100vh;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 24px;
-      padding: 48px 0;
+      gap: 14px;
+      padding: 28px 0;
     }
 
     .profile-card {
       position: relative;
       width: 100%;
-      min-height: min(650px, calc(100vh - 96px));
+      min-height: 470px;
       display: grid;
-      grid-template-columns: 0.78fr 1.22fr;
-      gap: clamp(32px, 6vw, 72px);
+      grid-template-columns: 300px 1fr;
+      gap: clamp(32px, 5vw, 64px);
       align-items: center;
       border: 1px solid var(--surface-border);
-      border-radius: 28px;
-      padding: clamp(32px, 6vw, 68px);
+      border-radius: 18px;
+      padding: clamp(36px, 5vw, 52px);
       background: var(--surface);
-      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.38);
-      backdrop-filter: blur(18px);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(12px);
       overflow: hidden;
-      animation: reveal 0.8s ease-out both;
+      animation: reveal 0.6s ease-out both;
     }
 
     .profile-card::after {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      right: -110px;
-      bottom: -110px;
-      border-radius: 50%;
-      border: 1px solid rgba(245, 158, 11, 0.22);
-      box-shadow: 0 0 60px rgba(245, 158, 11, 0.08);
-    }
-
-    .avatar-side {
-      display: flex;
-      justify-content: center;
+      display: none;
     }
 
     .avatar {
       position: relative;
-      width: clamp(220px, 24vw, 300px);
-      aspect-ratio: 1;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      font-size: clamp(4rem, 8vw, 6.5rem);
-      font-weight: 800;
-      letter-spacing: -0.08em;
-      color: #fff7e9;
-      background:
-        linear-gradient(145deg, rgba(239, 68, 68, 0.96), rgba(37, 12, 14, 0.98));
-      border: 1px solid rgba(245, 158, 11, 0.42);
+      width: 300px;
+      aspect-ratio: 4 / 5;
+      border-radius: 12px;
+      border: 1px solid rgba(214, 166, 95, 0.48);
       box-shadow:
-        0 24px 55px rgba(0, 0, 0, 0.38),
-        inset 0 0 40px rgba(245, 158, 11, 0.10),
-        0 0 0 10px rgba(239, 68, 68, 0.035);
+        0 18px 38px rgba(0, 0, 0, 0.32),
+        0 0 26px rgba(185, 28, 28, 0.12);
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(1.22) contrast(1.08) brightness(1.03);
     }
 
     .avatar::before,
     .avatar::after {
+      display: none;
+    }
+
+    .avatar-side {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .avatar-side::before {
       content: "";
       position: absolute;
-      border-radius: 50%;
-    }
-
-    .avatar::before {
-      inset: -16px;
-      border: 1px solid rgba(245, 158, 11, 0.28);
-      border-top-color: transparent;
-      animation: spin 14s linear infinite;
-    }
-
-    .avatar::after {
-      inset: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: -1;
+      width: 78%;
+      height: 82%;
+      right: -14px;
+      bottom: -14px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(185, 28, 28, 0.58), rgba(214, 166, 95, 0.38));
+      filter: blur(1px);
     }
 
     .content {
@@ -165,96 +121,84 @@
     .status {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      margin-bottom: 18px;
-      color: var(--gold);
-      font-size: 0.78rem;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
     .status-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: var(--red);
-      box-shadow: 0 0 14px var(--red);
-      animation: pulse 2s ease-in-out infinite;
+      background: var(--gold);
+      box-shadow: none;
+      animation: none;
     }
 
     h1 {
       max-width: 650px;
-      font-size: clamp(2.4rem, 5vw, 4.8rem);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-      margin-bottom: 18px;
+      font-size: clamp(2.25rem, 4.6vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
     }
 
     .role {
       color: var(--gold);
-      font-size: clamp(1.05rem, 2vw, 1.32rem);
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
       font-weight: 650;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     .description {
       max-width: 620px;
       color: var(--muted);
-      font-size: clamp(0.96rem, 1.4vw, 1.06rem);
-      line-height: 1.82;
+      font-size: clamp(0.94rem, 1.3vw, 1.02rem);
+      line-height: 1.72;
     }
 
     .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 34px;
+      margin-top: 24px;
     }
 
     .link {
-      min-width: 145px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 13px 18px;
-      border: 1px solid rgba(245, 158, 11, 0.16);
-      border-radius: 12px;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 700;
-      background: rgba(255, 255, 255, 0.025);
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
-    }
-
-    .link svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
+      min-width: 180px;
+      min-height: 48px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      text-transform: none;
     }
 
     .link-primary {
-      color: #fffaf6;
-      border-color: var(--red);
       background: var(--red);
+      border-color: var(--red);
     }
 
-    .link:hover,
-    .link:focus-visible {
-      transform: translateY(-3px);
-      border-color: var(--gold);
-      background: rgba(245, 158, 11, 0.12);
-      box-shadow: 0 12px 28px rgba(239, 68, 68, 0.12);
-      outline: none;
+    .link-action {
+      justify-content: space-between;
+      padding-inline: 16px 14px;
     }
 
-    .link-primary:hover,
-    .link-primary:focus-visible {
-      color: #fffaf6;
-      background: #ff5c5c;
-      border-color: #ff5c5c;
+    .link-action .arrow {
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      font-size: 0.78rem;
+      opacity: 0.72;
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .link:hover .arrow,
+    .link:focus-visible .arrow {
+      transform: translate(2px, -2px);
+      opacity: 1;
     }
 
     .top-nav {
@@ -340,17 +284,8 @@
     }
 
     .info-card {
-      min-height: 180px;
-      padding: 24px;
-      border: 1px solid rgba(245, 158, 11, 0.12);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.018);
-      transition: 180ms ease;
-    }
-
-    .info-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(245, 158, 11, 0.32);
+      min-height: 150px;
+      border-radius: 10px;
     }
 
     .info-card h3 {
@@ -418,6 +353,84 @@
       justify-content: center;
     }
 
+    .details-panel {
+      border-radius: 18px;
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.22);
+    }
+
+    .tab-list {
+      border-bottom: 1px solid var(--surface-border);
+    }
+
+    .tab-button {
+      min-height: 58px;
+      border: 0;
+      border-right: 1px solid var(--surface-border);
+      color: var(--muted);
+      background: transparent;
+      font: inherit;
+      font-size: 0.86rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 180ms ease;
+    }
+
+    .tab-button:last-child {
+      border-right: 0;
+    }
+
+    .tab-button:hover,
+    .tab-button:focus-visible {
+      color: var(--text);
+      background: rgba(239, 68, 68, 0.07);
+      outline: none;
+    }
+
+    .tab-button.active {
+      color: var(--text);
+      background: rgba(185, 28, 28, 0.08);
+      box-shadow: inset 0 -2px var(--red);
+    }
+
+    .tab-panel {
+      display: none;
+      min-height: 220px;
+      padding: clamp(22px, 3.5vw, 34px);
+      animation: reveal 260ms ease-out both;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .tab-panel .section-heading {
+      margin-bottom: 20px;
+    }
+
+    .tab-panel .info-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .tab-panel .formation-grid {
+      grid-template-columns: 150px 1fr;
+    }
+
+    .tab-panel .formation-highlight {
+      min-height: 180px;
+    }
+
+    .tab-panel .formation-highlight strong {
+      font-size: 2.2rem;
+    }
+
+    .tab-panel.contact-section {
+      display: none;
+    }
+
+    .tab-panel.contact-section.active {
+      display: block;
+    }
+
     @keyframes reveal {
       from { opacity: 0; transform: translateY(18px) scale(0.985); }
       to { opacity: 1; transform: translateY(0) scale(1); }
@@ -471,6 +484,33 @@
       .info-grid,
       .formation-grid {
         grid-template-columns: 1fr;
+      }
+
+      .tab-panel .info-grid,
+      .tab-panel .formation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tab-panel {
+        min-height: auto;
+      }
+
+      .tab-button {
+        min-height: 54px;
+        padding: 8px 6px;
+        font-size: 0.78rem;
+      }
+
+      .tab-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tab-button:nth-child(2) {
+        border-right: 0;
+      }
+
+      .tab-button:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--surface-border);
       }
     }
 
@@ -533,15 +573,15 @@
     <nav class="top-nav" aria-label="Navegação principal">
       <a class="nav-name" href="#inicio">VT<span>.dev</span></a>
       <div class="nav-links">
-        <a href="#sobre">Sobre</a>
-        <a href="#formacao">Formação</a>
-        <a href="#contato">Contato</a>
+        <a href="#inicio">Início</a>
+        <a href="#informacoes">Informações</a>
+        <a href="mailto:vitorschelski2010@gmail.com">Contato</a>
       </div>
     </nav>
 
     <section class="profile-card" id="inicio" aria-label="Apresentação profissional">
       <div class="avatar-side">
-        <div class="avatar" aria-label="Iniciais VT">VT</div>
+        <img class="avatar" src="perfil.jpeg" alt="Foto de perfil de Vitor Ten Cate Schelski">
       </div>
 
       <div class="content">
@@ -550,97 +590,113 @@
         <p class="role">Estudante de Curso Técnico em Tecnologia da Informação</p>
 
         <p class="description">
-          Sou uma pessoa que busca crescer profissionalmente, adquirir novos conhecimentos e desenvolver habilidades que possam contribuir para o meu futuro. Acredito que o mercado de trabalho exige dedicação, responsabilidade, criatividade e capacidade de adaptação.
+          Sou uma pessoa que busca crescer profissionalmente, adquirir novos conhecimentos e desenvolver habilidades que possam contribuir para o meu futuro. Tenho interesse em aprender, explorar novas áreas e construir uma carreira que proporcione realização pessoal e profissional.
         </p>
 
         <nav class="links" aria-label="Links úteis">
-          <a class="link link-primary" href="https://github.com/vitortencate" target="_blank" rel="noopener noreferrer">
+          <a class="link link-primary link-action" href="https://github.com/vitortencate" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.3 11.3 0 0 0-3.57 22c.57.1.78-.25.78-.55v-2.13c-3.17.69-3.84-1.35-3.84-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.53-.29-5.19-1.27-5.19-5.65 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.18 1.82 1.18 3.07 0 4.39-2.67 5.36-5.21 5.64.41.36.78 1.06.78 2.13v3.17c0 .3.21.66.79.55A11.3 11.3 0 0 0 12 .7Z"/></svg>
-            GitHub
+            <span>Ver meu GitHub</span>
+            <span class="arrow" aria-hidden="true">↗</span>
           </a>
 
-          <a class="link" href="mailto:vitorschelski2010@gmail.com">
+          <a class="link link-action" href="mailto:vitorschelski2010@gmail.com">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6c0-1.1-.9-2-2-2Zm-.4 4.25-7.1 4.43a1 1 0 0 1-1.04 0L4.4 8.25V6l7.6 4.75L19.6 6v2.25Z"/></svg>
-            Email
+            <span>Enviar mensagem</span>
+            <span class="arrow" aria-hidden="true">↗</span>
           </a>
         </nav>
       </div>
     </section>
 
-    <section class="section" id="sobre">
-      <div class="section-heading">
-        <span class="section-label">Sobre mim</span>
-        <h2>Meu perfil profissional</h2>
-      </div>
-      <p class="section-copy">
-        Tenho 16 anos e estou iniciando minha trajetória na área de Tecnologia da Informação. Tenho interesse em aprender continuamente, adquirir experiência prática e descobrir qual especialização combina mais com meus objetivos. Busco desenvolver responsabilidade, criatividade, adaptação e uma boa capacidade de trabalho em equipe.
-      </p>
-    </section>
-
-    <section class="section" aria-label="Habilidades, objetivos e interesses">
-      <div class="section-heading">
-        <span class="section-label">Conhecimentos e objetivos</span>
-        <h2>Construindo minha carreira</h2>
+    <section class="details-panel" id="informacoes" aria-label="Informações profissionais">
+      <div class="tab-list" role="tablist" aria-label="Categorias">
+        <button class="tab-button active" id="tab-sobre" role="tab" aria-selected="true" aria-controls="panel-sobre" data-tab="sobre">Sobre mim</button>
+        <button class="tab-button" id="tab-conhecimento" role="tab" aria-selected="false" aria-controls="panel-conhecimento" data-tab="conhecimento">Habilidades</button>
+        <button class="tab-button" id="tab-formacao" role="tab" aria-selected="false" aria-controls="panel-formacao" data-tab="formacao">Formação</button>
+        <button class="tab-button" id="tab-contato" role="tab" aria-selected="false" aria-controls="panel-contato" data-tab="contato">Contato</button>
       </div>
 
-      <div class="info-grid">
-        <article class="info-card">
-          <h3>Habilidades e tecnologias</h3>
-          <ul>
-            <li>HTML e CSS</li>
-            <li>JavaScript</li>
-            <li>Git e GitHub</li>
-            <li>Lógica de programação</li>
-            <li>Aprendizagem contínua</li>
-          </ul>
-        </article>
-
-        <article class="info-card">
-          <h3>Objetivos profissionais</h3>
-          <p>Conquistar experiência prática, fortalecer minhas competências técnicas e construir uma carreira sólida em tecnologia, alcançando independência e realização profissional.</p>
-        </article>
-
-        <article class="info-card">
-          <h3>Áreas de interesse</h3>
-          <ul>
-            <li>Desenvolvimento web</li>
-            <li>Programação</li>
-            <li>Redes e infraestrutura</li>
-            <li>Suporte técnico</li>
-            <li>Cibersegurança</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="formacao">
-      <div class="section-heading">
-        <span class="section-label">Formação</span>
-        <h2>Minha trajetória acadêmica</h2>
-      </div>
-
-      <div class="formation-grid">
-        <div class="formation-highlight">
-          <div><strong>IENH</strong><span>Instituição de ensino</span></div>
+      <div class="tab-panel active" id="panel-sobre" role="tabpanel" aria-labelledby="tab-sobre">
+        <div class="section-heading">
+          <span class="section-label">Sobre mim</span>
+          <h2>Meu perfil profissional</h2>
         </div>
-        <article class="info-card">
-          <h3>Curso Técnico em Tecnologia da Informação</h3>
-          <p>Estudo no IENH, desenvolvendo conhecimentos fundamentais de tecnologia da informação e explorando diferentes áreas relacionadas à programação, sistemas e infraestrutura.</p>
-        </article>
+        <p class="section-copy">Tenho 16 anos e estou iniciando minha trajetória na área de Tecnologia da Informação. Tenho interesse em aprender continuamente, adquirir experiência prática e descobrir qual especialização combina mais com meus objetivos.</p>
       </div>
-    </section>
 
-    <section class="section contact-section" id="contato">
-      <div class="section-heading">
-        <span class="section-label">Contato</span>
-        <h2>Vamos conversar?</h2>
+      <div class="tab-panel" id="panel-conhecimento" role="tabpanel" aria-labelledby="tab-conhecimento">
+        <div class="section-heading">
+          <span class="section-label">Conhecimentos e objetivos</span>
+          <h2>Construindo minha carreira</h2>
+        </div>
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>Habilidades e tecnologias</h3>
+            <ul><li>HTML e CSS</li><li>JavaScript</li><li>Git e GitHub</li><li>Lógica de programação</li></ul>
+          </article>
+          <article class="info-card">
+            <h3>Objetivos profissionais</h3>
+            <p>Conquistar experiência prática, fortalecer minhas competências técnicas e construir uma carreira sólida em tecnologia.</p>
+          </article>
+          <article class="info-card">
+            <h3>Áreas de interesse</h3>
+            <ul><li>Desenvolvimento web</li><li>Programação</li><li>Infraestrutura</li><li>Cibersegurança</li></ul>
+          </article>
+        </div>
       </div>
-      <p class="section-copy">Para oportunidades, projetos ou troca de conhecimentos, entre em contato por email ou acompanhe meus trabalhos no GitHub.</p>
-      <nav class="links" aria-label="Contato">
-        <a class="link link-primary" href="mailto:vitorschelski2010@gmail.com">Enviar email</a>
-        <a class="link" href="https://github.com/vitortencate" target="_blank" rel="noopener noreferrer">Visitar GitHub</a>
-      </nav>
+
+      <div class="tab-panel" id="panel-formacao" role="tabpanel" aria-labelledby="tab-formacao">
+        <div class="section-heading">
+          <span class="section-label">Formação</span>
+          <h2>Minha trajetória acadêmica</h2>
+        </div>
+        <div class="formation-grid">
+          <div class="formation-highlight"><div><strong>IENH</strong><span>Instituição de ensino</span></div></div>
+          <article class="info-card">
+            <h3>Curso Técnico em Tecnologia da Informação</h3>
+            <p>Estudo no IENH, desenvolvendo conhecimentos em programação, sistemas e infraestrutura.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="tab-panel contact-section" id="panel-contato" role="tabpanel" aria-labelledby="tab-contato">
+        <div class="section-heading">
+          <span class="section-label">Contato</span>
+          <h2>Vamos conversar?</h2>
+        </div>
+        <p class="section-copy">Para oportunidades, projetos ou troca de conhecimentos, entre em contato por email ou visite meu GitHub.</p>
+        <nav class="links" aria-label="Contato">
+          <a class="link link-primary link-action" href="mailto:vitorschelski2010@gmail.com">
+            <span>Enviar um email</span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="link link-action" href="https://github.com/vitortencate" target="_blank" rel="noopener noreferrer">
+            <span>Acessar meu GitHub</span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        </nav>
+      </div>
     </section>
   </main>
+
+  <script>
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        tabButtons.forEach((item) => {
+          item.classList.remove("active");
+          item.setAttribute("aria-selected", "false");
+        });
+        tabPanels.forEach((panel) => panel.classList.remove("active"));
+
+        button.classList.add("active");
+        button.setAttribute("aria-selected", "true");
+        document.getElementById(`panel-${button.dataset.tab}`).classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>
