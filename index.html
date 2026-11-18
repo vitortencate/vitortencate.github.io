@@ -45,7 +45,7 @@
     }
 
     .container {
-      width: min(1080px, calc(100% - 40px));
+      width: min(
       min-height: 100vh;
       margin: 0 auto;
       display: flex;
@@ -563,6 +563,20 @@
         scroll-behavior: auto !important;
       }
     }
+
+    .profile-links {
+      width: 300px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin: 0 0 12px;
+    }
+
+    .profile-links .link {
+      width: 300px;
+      min-width: 0;
+      min-height: 46px;
+    }
   </style>
 </head>
 <body>
@@ -581,19 +595,7 @@
 
     <section class="profile-card" id="inicio" aria-label="Apresentação profissional">
       <div class="avatar-side">
-        <img class="avatar" src="perfil.jpeg" alt="Foto de perfil de Vitor Ten Cate Schelski">
-      </div>
-
-      <div class="content">
-        <div class="status"><span class="status-dot"></span>Disponível para oportunidades</div>
-        <h1>Vitor Ten Cate Schelski</h1>
-        <p class="role">Estudante de Curso Técnico em Tecnologia da Informação</p>
-
-        <p class="description">
-          Sou uma pessoa que busca crescer profissionalmente, adquirir novos conhecimentos e desenvolver habilidades que possam contribuir para o meu futuro. Tenho interesse em aprender, explorar novas áreas e construir uma carreira que proporcione realização pessoal e profissional.
-        </p>
-
-        <nav class="links" aria-label="Links úteis">
+        <nav class="links profile-links" aria-label="Links úteis">
           <a class="link link-primary link-action" href="https://github.com/vitortencate" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.3 11.3 0 0 0-3.57 22c.57.1.78-.25.78-.55v-2.13c-3.17.69-3.84-1.35-3.84-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.53-.29-5.19-1.27-5.19-5.65 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.18 1.82 1.18 3.07 0 4.39-2.67 5.36-5.21 5.64.41.36.78 1.06.78 2.13v3.17c0 .3.21.66.79.55A11.3 11.3 0 0 0 12 .7Z"/></svg>
             <span>Ver meu GitHub</span>
@@ -606,6 +608,17 @@
             <span class="arrow" aria-hidden="true">↗</span>
           </a>
         </nav>
+        <img class="avatar" src="perfil.jpeg" alt="Foto de perfil de Vitor Ten Cate Schelski">
+      </div>
+
+      <div class="content">
+        <div class="status"><span class="status-dot"></span>Disponível para oportunidades</div>
+        <h1>Vitor Ten Cate Schelski</h1>
+        <p class="role">Estudante de Curso Técnico em Tecnologia da Informação</p>
+
+        <p class="description">
+          Sou uma pessoa que busca crescer profissionalmente, adquirir novos conhecimentos e desenvolver habilidades que possam contribuir para o meu futuro. Tenho interesse em aprender, explorar novas áreas e construir uma carreira que proporcione realização pessoal e profissional.
+        </p>
       </div>
     </section>
 
