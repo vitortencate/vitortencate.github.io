@@ -7,13 +7,13 @@
   <title>Vitor Ten Cate Schelski</title>
   <style>
     :root {
-      --background: #0b0b0c;
-      --surface: rgba(22, 22, 24, 0.94);
-      --surface-border: rgba(255, 255, 255, 0.09);
-      --red: #b91c1c;
-      --gold: #d6a65f;
-      --text: #f7f5f2;
-      --muted: #aaa8a4;
+      --background: #09111e;
+      --surface: rgba(18, 31, 48, 0.92);
+      --surface-border: rgba(148, 163, 184, 0.16);
+      --red: #2563eb;
+      --gold: #67e8f9;
+      --text: #f8fafc;
+      --muted: #aab7c5;
     }
 
     * {
@@ -32,12 +32,22 @@
       font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 82% 12%, rgba(185, 28, 28, 0.09), transparent 26rem),
-        var(--background);
+        radial-gradient(circle at 12% 18%, rgba(37, 99, 235, 0.22), transparent 28rem),
+        radial-gradient(circle at 88% 82%, rgba(14, 165, 233, 0.16), transparent 30rem),
+        linear-gradient(135deg, #07101d 0%, #0d1b2d 52%, #101827 100%);
     }
 
     body::before {
-      display: none;
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 92%);
+      pointer-events: none;
     }
 
     .orb {
@@ -65,8 +75,10 @@
       border: 1px solid var(--surface-border);
       border-radius: 18px;
       padding: clamp(36px, 5vw, 52px);
-      background: var(--surface);
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+      background:
+        linear-gradient(135deg, rgba(24, 39, 60, 0.96), rgba(12, 24, 40, 0.94));
+      border-color: rgba(148, 163, 184, 0.18);
+      box-shadow: 0 24px 70px rgba(2, 8, 23, 0.48);
       backdrop-filter: blur(12px);
       overflow: hidden;
       animation: reveal 0.6s ease-out both;
@@ -79,15 +91,16 @@
     .avatar {
       position: relative;
       width: 300px;
-      aspect-ratio: 4 / 5;
-      border-radius: 12px;
-      border: 1px solid rgba(214, 166, 95, 0.48);
+      height: 300px;
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      border: 1px solid rgba(103, 232, 249, 0.38);
       box-shadow:
-        0 18px 38px rgba(0, 0, 0, 0.32),
-        0 0 26px rgba(185, 28, 28, 0.12);
+        0 20px 44px rgba(2, 8, 23, 0.48),
+        0 0 30px rgba(37, 99, 235, 0.16);
       object-fit: cover;
-      object-position: center top;
-      filter: saturate(1.22) contrast(1.08) brightness(1.03);
+      object-position: center 28%;
+      filter: saturate(1.04) contrast(1.04) brightness(1.02);
     }
 
     .avatar::before,
@@ -112,8 +125,8 @@
       right: -14px;
       bottom: -14px;
       border-radius: 12px;
-      background: linear-gradient(135deg, rgba(185, 28, 28, 0.58), rgba(214, 166, 95, 0.38));
-      filter: blur(1px);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.72), rgba(103, 232, 249, 0.38));
+      box-shadow: 0 18px 38px rgba(37, 99, 235, 0.12);
     }
 
     .content {
@@ -359,6 +372,8 @@
     .details-panel {
       border-radius: 18px;
       box-shadow: 0 16px 44px rgba(0, 0, 0, 0.22);
+      background: linear-gradient(145deg, rgba(20, 35, 54, 0.96), rgba(11, 23, 39, 0.94));
+      border-color: rgba(148, 163, 184, 0.16);
     }
 
     .tab-list {
@@ -470,6 +485,7 @@
 
       .avatar {
         width: min(250px, 58vw);
+        height: min(250px, 58vw);
       }
 
       .status {
@@ -587,8 +603,8 @@
     }
 
     .profile-links .link-primary {
-      border-color: rgba(185, 28, 28, 0.68);
-      background: linear-gradient(100deg, rgba(185, 28, 28, 0.98), rgba(145, 24, 24, 0.92));
+      border-color: rgba(37, 99, 235, 0.78);
+      background: linear-gradient(100deg, #2563eb, #1d4ed8);
     }
 
     .profile-links .link svg {
@@ -662,7 +678,7 @@
             <span class="arrow" aria-hidden="true">↗</span>
           </a>
         </nav>
-        <img class="avatar" src="./pergil.jpeg?v=20261123" alt="Foto de perfil de Vitor Ten Cate Schelski" width="625" height="713" loading="eager" decoding="async">
+        <img class="avatar" src="./perfil-quadrada.jpg?v=20261123" alt="Foto de perfil de Vitor Ten Cate Schelski" width="800" height="800" loading="eager" decoding="async">
       </div>
 
       <div class="content">
